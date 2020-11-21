@@ -13,15 +13,16 @@
     <color name="cheers_sopt_orange">#cc6e2a</color>
     <color name="cheers_sopt_rasepberry">#b02e84</color>
     <color name="cheers_sopt_blue">#0363bb</color>
-    <color name="cheers_sopt_yellow">#e5e86b</color>
     <color name="cheers_sopt_green">#38c6a3</color>
     <color name="cheers_sopt_skyblue">#38bdc6</color>
     <color name="cheers_sopt_coke">#301a29</color>
     <color name="cheers_sopt_grey">#a7aeb3</color>
     <color name="very_light_pink">#c4c4c4</color>
-    <color name="dark">#282844</color>
+    <color name="cheers_sopt_light_navy">#282844</color>
     <color name="silver">#c2d3d2</color>
     <color name="butterscotch">#feae3f</color>
     <color name="brown_grey">#8c8c8c</color>
     <color name="very_light_pink_two">#f2f2f2</color>
+    <color name="cheers_sopt_yellow">#e9ce3e</color>
+    <color name="dusk">#4f4f70</color>
 </resources>
