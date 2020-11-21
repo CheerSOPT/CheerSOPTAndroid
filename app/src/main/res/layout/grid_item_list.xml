@@ -87,7 +87,7 @@
             android:layout_marginStart="58dp"
             android:layout_marginEnd="58dp"
             android:layout_marginBottom="5dp"
-            android:background="@drawable/beverage_stack"
+            android:background="@drawable/beverage_stack2"
             app:layout_constraintBottom_toTopOf="@+id/b_stack1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -99,7 +99,7 @@
             android:layout_marginStart="58dp"
             android:layout_marginEnd="58dp"
             android:layout_marginBottom="5dp"
-            android:background="@drawable/beverage_stack"
+            android:background="@drawable/beverage_stack3"
             app:layout_constraintBottom_toTopOf="@+id/b_stack2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -111,7 +111,7 @@
             android:layout_marginStart="58dp"
             android:layout_marginEnd="58dp"
             android:layout_marginBottom="5dp"
-            android:background="@drawable/beverage_stack"
+            android:background="@drawable/beverage_stack4"
             app:layout_constraintBottom_toTopOf="@+id/b_stack3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -123,11 +123,10 @@
             android:layout_marginStart="58dp"
             android:layout_marginEnd="58dp"
             android:layout_marginBottom="5dp"
-            android:background="@drawable/beverage_stack"
+            android:background="@drawable/beverage_stack5"
             app:layout_constraintBottom_toTopOf="@+id/b_stack4"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
