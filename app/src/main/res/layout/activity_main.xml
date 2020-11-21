@@ -4,9 +4,97 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/cheers_sopt_navy"
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/btn_make_drink"
+        android:layout_width="242dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="594dp"
+        android:background="@drawable/make_drink"
+        android:fontFamily="@font/notosans_regular"
+        android:gravity="center"
+        android:text="제조하기"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/btn_beer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="68sp"
+        android:layout_marginTop="66dp"
+        android:src="@drawable/btn_beer"
+        android:alpha="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/btn_soju"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:src="@drawable/btn_soju"
+        app:layout_constraintBottom_toBottomOf="@id/btn_beer"
+        app:layout_constraintStart_toEndOf="@id/btn_beer"
+        app:layout_constraintTop_toTopOf="@id/btn_beer" />
+
+    <ImageView
+        android:id="@+id/btn_chungha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:src="@drawable/btn_chungha"
+        app:layout_constraintBottom_toBottomOf="@id/btn_soju"
+        app:layout_constraintStart_toEndOf="@id/btn_soju"
+        app:layout_constraintTop_toTopOf="@id/btn_soju" />
+
+    <ImageView
+        android:id="@+id/btn_bokbunja"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="176dp"
+        android:src="@drawable/btn_bokbunja"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/btn_tonic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:src="@drawable/btn_tonic"
+        app:layout_constraintBottom_toBottomOf="@id/btn_bokbunja"
+        app:layout_constraintStart_toEndOf="@id/btn_bokbunja"
+        app:layout_constraintTop_toTopOf="@id/btn_bokbunja" />
+
+    <ImageView
+        android:id="@+id/btn_coke"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:src="@drawable/btn_coke"
+        app:layout_constraintBottom_toBottomOf="@id/btn_tonic"
+        app:layout_constraintStart_toEndOf="@id/btn_tonic"
+        app:layout_constraintTop_toTopOf="@id/btn_tonic" />
+
+    <ImageView
+        android:id="@+id/btn_cider"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:src="@drawable/btn_cider"
+        app:layout_constraintBottom_toBottomOf="@id/btn_coke"
+        app:layout_constraintStart_toEndOf="@id/btn_coke"
+        app:layout_constraintTop_toTopOf="@id/btn_coke" />
+
+    <TextView
+        android:id="@+id/beer_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hello World!"
@@ -14,6 +102,5 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
