@@ -1,19 +1,56 @@
-# CheerSOPTAndroid
+## 취얼솝트(Cheers SOPT)
 
-### commit convention
+------
 
-> [Add Codes] - 새로운 코드를 추가했을 경우
+​	**랜덤주로 Cheers! 취하자 솝트!**
 
-> [Refactor Codes] - 기존에 작성한 코드를 수정했을 경우
+​	**솝트 뒷풀이에 중독된 당신을 위한 환상의 폭탄주 찾기 어플!**
 
-> [Implement Features] - 새로운 기능을 추가하거나 완성했을 경우
 
-> [Fix Bugs] - 오류를 해결했을 경우
 
-> [Docs] - readme, wiki 작성한 경우
+### 문다빈 - 리스트 뷰
 
-> [Create UI] - 새로운 xml 파일을 생성 했을 경우
+- 제조 결과 
+- RecyclerView를 StaggeredGridLayout으로 구현
+- 칵테일 버튼 클릭 시 메인 뷰로 이동
+- 서버 연동해서 뷰 그리기
 
-> [Refactor UI] - xml 파일을 수정 했을 경우
+### 박현지 - 메인 뷰
 
-> [Chore] - 동작에 영향을 주는 코드 변경 없는 변경사항 (주석, 정렬 등등)
+- 랜덤 폭탄주를 만들기 위한 주종 선택과 취소기능
+- 주조 버튼 클릭시 결과뷰로 이동
+- 리스트 버튼 클릭시 리스트뷰로 이동
+
+### 박세란 - 결과 뷰
+
+- 제조 결과 뷰
+- 서버 연동
+  - retrofit2 연동
+- 애니메이션
+  - 제조 결과뷰 객체 에니메이션
+
+
+''
+
+    // 랜덤 레시피 제조
+    @POST("/recipe/blender")
+    fun requestBlender(@Body body: RequestBlenderData) : Call<ResponseBlenderData>
+
+    // 레시피 등록
+    @POST("/recipe")
+    fun postRecipe(@Body body: RequestPostRecipeData) : Call<ResponsePostRecipeData>
+
+    // 레시피 리스트 조회
+    @GET("/recipe")
+    fun requestRecipe(
+    ) : Call<ResponseRecipeData>
+
+    // 레시피 리스트 조회
+    @GET("/drinks")
+    fun requestDrinks(
+    ) : Call<ResponseDrinksData>
+    
+''
+    
+
+  
