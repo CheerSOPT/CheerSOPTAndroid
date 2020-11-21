@@ -25,4 +25,32 @@
 
 - 제조 결과 뷰
 - 서버 연동
+  - retrofit2 연동
 - 애니메이션
+  - 제조 결과뷰 객체 에니메이션
+
+
+''
+
+    // 랜덤 레시피 제조
+    @POST("/recipe/blender")
+    fun requestBlender(@Body body: RequestBlenderData) : Call<ResponseBlenderData>
+
+    // 레시피 등록
+    @POST("/recipe")
+    fun postRecipe(@Body body: RequestPostRecipeData) : Call<ResponsePostRecipeData>
+
+    // 레시피 리스트 조회
+    @GET("/recipe")
+    fun requestRecipe(
+    ) : Call<ResponseRecipeData>
+
+    // 레시피 리스트 조회
+    @GET("/drinks")
+    fun requestDrinks(
+    ) : Call<ResponseDrinksData>
+    
+''
+    
+
+  
