@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="5dp">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/rectangle204"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/userImg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="44dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="45dp"
+            android:background="@drawable/ic_img_glass_small"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/drink_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:textColor="#FFFFFF"
+            android:fontFamily="@font/notosans_regular"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/userImg" />
+
+        <TextView
+            android:id="@+id/drink_species"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="10dp"
+            android:textColor="#FFFFFF"
+            android:fontFamily="@font/notosans_regular"
+            android:textSize="12dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/drink_name" />
+
+        <TextView
+            android:id="@+id/line"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/line"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/userImg"
+            />
+
+        <TextView
+            android:id="@+id/b_stack1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="58dp"
+            android:layout_marginEnd="58dp"
+            android:layout_marginBottom="38dp"
+            android:background="@drawable/beverage_stack"
+            app:layout_constraintBottom_toTopOf="@+id/drink_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/b_stack2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="58dp"
+            android:layout_marginEnd="58dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/beverage_stack2"
+            app:layout_constraintBottom_toTopOf="@+id/b_stack1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/b_stack3"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="58dp"
+            android:layout_marginEnd="58dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/beverage_stack3"
+            app:layout_constraintBottom_toTopOf="@+id/b_stack2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/b_stack4"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="58dp"
+            android:layout_marginEnd="58dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/beverage_stack4"
+            app:layout_constraintBottom_toTopOf="@+id/b_stack3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/b_stack5"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="58dp"
+            android:layout_marginEnd="58dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/beverage_stack5"
+            app:layout_constraintBottom_toTopOf="@+id/b_stack4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
