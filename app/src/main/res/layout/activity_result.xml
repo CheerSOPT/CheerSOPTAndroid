@@ -11,7 +11,7 @@
         android:id="@+id/result_beverage_tv1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="환상의 비율로 제조 완료 !"
+        android:text="경고합니다 Warning!💀"
         android:textColor="@color/white"
         android:fontFamily="@font/notosans_bold"
         android:textSize="24dp"
@@ -41,9 +41,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="108dp"
-        android:background="@drawable/et_area_beverage_naming"/>
+        android:background="@drawable/et_area_beverage_naming"
+        android:visibility="invisible"/>
 
     <TextView
+        android:id="@+id/result_beverage_btn"
         android:layout_width="49dp"
         android:layout_height="26dp"
         app:layout_constraintEnd_toEndOf="@id/result_beverage_et"
@@ -53,7 +55,8 @@
         android:layout_marginEnd="5dp"
         android:textColor="@color/white"
         android:text="완료"
-        android:gravity="center"/>
+        android:gravity="center"
+        android:visibility="invisible"/>
 
 
 
@@ -68,7 +71,8 @@
         android:textColor="@color/white"
         android:alpha="0.6"
         android:textSize="12dp"
-        android:fontFamily="@font/notosans_regular"/>
+        android:fontFamily="@font/notosans_regular"
+        android:visibility="invisible"/>
 
     <TextView
         android:id="@+id/result_beverage_tv_cnt2"
@@ -82,7 +86,8 @@
         android:textColor="@color/white"
         android:alpha="0.6"
         android:textSize="12dp"
-        android:fontFamily="@font/notosans_regular"/>
+        android:fontFamily="@font/notosans_regular"
+        android:visibility="invisible"/>
 
     <ImageView
         android:layout_width="142dp"
@@ -90,8 +95,8 @@
         android:src="@drawable/img_glass"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="273dp"/>
+        app:layout_constraintBottom_toTopOf="@id/result_beverage_tv"
+        android:layout_marginBottom="37dp"/>
 
 
     <TextView
@@ -100,8 +105,8 @@
         android:layout_height="38dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="300dp"
+        app:layout_constraintBottom_toTopOf="@id/result_beverage_tv"
+        android:layout_marginBottom="64dp"
         android:background="@drawable/beverage_stack"
         />
     <TextView
@@ -153,17 +158,17 @@
     <TextView
         android:id="@+id/result_beverage_tv"
         android:layout_width="200dp"
-        android:layout_height="0dp"
+        android:layout_height="34dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="@id/result_beverage_bg"
-        android:layout_marginBottom="146dp"
+        app:layout_constraintBottom_toTopOf="@id/result_beverage_tv_beverage1"
+        android:layout_marginBottom="21dp"
         android:text="소주잔 1잔 기준입니다"
         android:paddingStart="48dp"
-        android:paddingEnd="21dp"
         android:textColor="@color/white"
+        android:textSize="14dp"
         android:fontFamily="@font/notosans_regular"
-        android:paddingVertical="7dp"
+        android:gravity="fill_vertical"
         android:background="@drawable/et_area_beverage_naming"/>
 
     <ImageView
@@ -175,43 +180,42 @@
         app:layout_constraintTop_toTopOf="@id/result_beverage_tv"
         app:layout_constraintBottom_toBottomOf="@id/result_beverage_tv"/>
 
-    <LinearLayout
+    <TextView
+        android:id="@+id/result_beverage_tv_beverage1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:text="맥주 1잔"
+        android:fontFamily="@font/notosans_bold"
+        app:layout_constraintBottom_toTopOf="@id/result_beverage_tv_beverage2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/result_beverage_tv_beverage2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:text="맥주 1잔"
+        android:fontFamily="@font/notosans_bold"
+        app:layout_constraintBottom_toTopOf="@id/result_beverage_tv_beverage3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+    <TextView
+        android:id="@+id/result_beverage_tv_beverage3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:text="맥주 1잔"
+        android:fontFamily="@font/notosans_bold"
+        android:layout_marginBottom="32dp"
         app:layout_constraintBottom_toBottomOf="@id/result_beverage_bg"
-        android:layout_marginBottom="38dp">
-        <TextView
-            android:id="@+id/result_beverage_tv_beverage1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:textSize="16dp"
-            android:text="맥주 1잔"
-            android:fontFamily="@font/notosans_bold"/>
-
-        <TextView
-            android:id="@+id/result_beverage_tv_beverage2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:textSize="16dp"
-            android:text="맥주 1잔"
-            android:fontFamily="@font/notosans_bold"/>
-        <TextView
-            android:id="@+id/result_beverage_tv_beverage3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:textSize="16dp"
-            android:text="맥주 1잔"
-            android:fontFamily="@font/notosans_bold"/>
-
-
-
-    </LinearLayout>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 
 
