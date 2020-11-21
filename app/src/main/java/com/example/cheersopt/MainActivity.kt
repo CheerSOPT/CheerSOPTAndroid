@@ -3,6 +3,7 @@ package com.example.cheersopt
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
+//update
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
