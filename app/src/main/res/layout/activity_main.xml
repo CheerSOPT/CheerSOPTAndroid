@@ -51,7 +51,8 @@
         android:src="@drawable/btn_chungha"
         app:layout_constraintBottom_toBottomOf="@id/btn_soju"
         app:layout_constraintStart_toEndOf="@id/btn_soju"
-        app:layout_constraintTop_toTopOf="@id/btn_soju" />
+        app:layout_constraintTop_toTopOf="@id/btn_soju"
+        />
 
     <ImageView
         android:id="@+id/btn_bokbunja"
@@ -61,7 +62,8 @@
         android:layout_marginTop="176dp"
         android:src="@drawable/btn_bokbunja"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        />
 
     <ImageView
         android:id="@+id/btn_tonic"
