@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+    android:layout_width="160dp"
     android:layout_height="wrap_content"
     android:padding="5dp">
 
@@ -13,7 +13,8 @@
         android:layout_marginTop="8dp"
         android:background="@drawable/rectangle204"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        >
 
         <ImageView
             android:id="@+id/userImg"
@@ -71,7 +72,7 @@
         <TextView
             android:id="@+id/b_stack1"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="19dp"
             android:layout_marginStart="58dp"
             android:layout_marginEnd="58dp"
             android:layout_marginBottom="38dp"
@@ -83,10 +84,10 @@
         <TextView
             android:id="@+id/b_stack2"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="19dp"
             android:layout_marginStart="58dp"
             android:layout_marginEnd="58dp"
-            android:layout_marginBottom="5dp"
+            android:layout_marginBottom="3dp"
             android:background="@drawable/beverage_stack2"
             app:layout_constraintBottom_toTopOf="@+id/b_stack1"
             app:layout_constraintEnd_toEndOf="parent"
@@ -95,10 +96,10 @@
         <TextView
             android:id="@+id/b_stack3"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="19dp"
             android:layout_marginStart="58dp"
             android:layout_marginEnd="58dp"
-            android:layout_marginBottom="5dp"
+            android:layout_marginBottom="3dp"
             android:background="@drawable/beverage_stack3"
             app:layout_constraintBottom_toTopOf="@+id/b_stack2"
             app:layout_constraintEnd_toEndOf="parent"
@@ -107,10 +108,10 @@
         <TextView
             android:id="@+id/b_stack4"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="19dp"
             android:layout_marginStart="58dp"
             android:layout_marginEnd="58dp"
-            android:layout_marginBottom="5dp"
+            android:layout_marginBottom="3dp"
             android:background="@drawable/beverage_stack4"
             app:layout_constraintBottom_toTopOf="@+id/b_stack3"
             app:layout_constraintEnd_toEndOf="parent"
@@ -119,10 +120,10 @@
         <TextView
             android:id="@+id/b_stack5"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="19dp"
             android:layout_marginStart="58dp"
             android:layout_marginEnd="58dp"
-            android:layout_marginBottom="5dp"
+            android:layout_marginBottom="3dp"
             android:background="@drawable/beverage_stack5"
             app:layout_constraintBottom_toTopOf="@+id/b_stack4"
             app:layout_constraintEnd_toEndOf="parent"

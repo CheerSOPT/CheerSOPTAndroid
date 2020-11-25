@@ -27,6 +27,7 @@ class ListActivity : AppCompatActivity() {
         recyclerView.adapter = recyclerAdapter
         val staggeredGridLayoutManager = StaggeredGridLayoutManager(2, LinearLayoutManager.VERTICAL)
         recyclerView.layoutManager = staggeredGridLayoutManager
+        recyclerView.addItemDecoration(ItemDecoration())
 
         recyclerAdapter.data = mutableListOf(
             DrinkData("현주야 한 번\n 더 가자", "토닉5"),

@@ -1,5 +1,7 @@
 package com.example.cheersopt
 
+import android.annotation.SuppressLint
+import android.content.Intent
 import android.graphics.drawable.Drawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -7,18 +9,81 @@ import android.util.Log
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import com.example.cheersopt.network.RequestToServer
+import com.example.cheersopt.network.data.RatioData
+import com.example.cheersopt.network.data.request.RequestBlenderData
+import com.example.cheersopt.network.data.request.RequestPostRecipeData
+import com.example.cheersopt.network.data.response.BlenderData
+import com.example.cheersopt.network.data.response.ResponseBlenderData
 import org.w3c.dom.Text
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import java.sql.Array
+import java.util.*
+import kotlin.collections.ArrayList
 
 class MainActivity : AppCompatActivity() {
 
+    companion object{
+        var requestPostRecipeData : RequestPostRecipeData = RequestPostRecipeData("sery", 2, ArrayList<RatioData>())
+
+    }
+    var requestBlenderData : RequestBlenderData = RequestBlenderData(1,2,-1)
+
+
     var cnt = 0
     var checkedArray = arrayListOf<Boolean>(false, false, false, false, false, false, false)
+    var checked = arrayListOf<Int>(-1,-1,-1)
+    var recipeLevel : Int = 2
+    var ratios : ArrayList<RatioData> = arrayListOf<RatioData>(RatioData(2,2),RatioData(2,3))
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+//        requestBlenderData.drinks_idx_1= 1
+//        requestBlenderData.drinks_idx_2= 2
+//        requestBlenderData.drinks_idx_3= 3
+
+
 
         clickDrinkBtn()
+
+        findViewById<TextView>(R.id.btn_make_drink).setOnClickListener {
+            if(cnt == 2 || cnt ==3 ){
+                // 서버 요청 보내
+                for(i in 0..2){
+                    for(cnt in 0..6){
+                        if(checkedArray[cnt]){
+                            checked[i] = cnt+1
+                        }
+                    }
+
+                }
+                if(checked[2] == -1){
+                    requestBlenderData.drinks_idx_1= checked[0]
+                    requestBlenderData.drinks_idx_2= checked[1]
+                }else{
+                    requestBlenderData.drinks_idx_1= checked[0]
+                    requestBlenderData.drinks_idx_2= checked[1]
+                    requestBlenderData.drinks_idx_3= checked[2]
+                }
+            }
+
+            // 서버 응답 받아와
+            requestBlender()
+
+            requestPostRecipeData.recipeLevel = recipeLevel
+
+            // 화면 전환
+            val intent = Intent(this, ResultActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+
+
+
     }
 
     fun clickDrinkBtn() {
@@ -238,4 +303,32 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
+
+    private fun requestBlender(): Int{
+        val call: Call<ResponseBlenderData> = RequestToServer.service.requestBlender( body = requestBlenderData )
+        call.enqueue(object : Callback<ResponseBlenderData> {
+            @SuppressLint("LongLogTag")
+            override fun onFailure(call: Call<ResponseBlenderData>, t: Throwable) {
+                Log.e("ResponseBlenderData 통신실패",t.toString())
+            }
+            @SuppressLint("LongLogTag")
+            override fun onResponse(
+                call: Call<ResponseBlenderData>,
+                response: Response<ResponseBlenderData>
+            ) {
+                if (response.isSuccessful){
+                    response.body().let { body ->
+                        recipeLevel = body!!.data.recipeLevel_3
+                        ratios = body.data.ratios
+//                        Log.e("ResponseBlenderData 통신응답바디", "status: ${body.status} message : ${body.message} data : ${sentenceIdx}\"")
+                    }
+                }
+
+            }
+
+        })
+        return 0
+    }
+
 }
