@@ -3,10 +3,20 @@ package com.example.cheersopt
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.example.cheersopt.network.RequestToServer
+import com.example.cheersopt.network.data.response.ResponseRecipeData
+import okhttp3.ResponseBody
+import org.json.JSONObject
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import java.util.*
 
 class ListActivity : AppCompatActivity() {
     private lateinit var recyclerAdapter: RecyclerAdapter
@@ -27,17 +37,34 @@ class ListActivity : AppCompatActivity() {
         recyclerView.adapter = recyclerAdapter
         val staggeredGridLayoutManager = StaggeredGridLayoutManager(2, LinearLayoutManager.VERTICAL)
         recyclerView.layoutManager = staggeredGridLayoutManager
-        recyclerView.addItemDecoration(ItemDecoration())
 
-        recyclerAdapter.data = mutableListOf(
-            DrinkData("현주야 한 번\n 더 가자", "토닉5"),
-            DrinkData("치얼솝트 1위\n 축하주", "소주2\n토닉3"),
-            DrinkData("혜인아 운\n좋다^^", "청하3\n토닉2"),
-            DrinkData("아...약해 \n약해....", "맥주3\n콜라2"),
-            DrinkData("오늘 구디 희영이\n가 점령", "소주1\n사이다4"),
-            DrinkData("치얼솝트 리액션왕\n 예나", "복분자4\n소주1"),
-            DrinkData("지리는 이기상\n 첫 회식", "복분자2\n청하2\n사이다1")
-        )
+
+        val call : Call<ResponseRecipeData> = RequestToServer.service.requestRecipe()
+        call.enqueue(object : Callback<ResponseRecipeData> {
+            override fun onFailure(call: Call<ResponseRecipeData>, t: Throwable) {
+                Log.e("통신실패",t.toString())
+            }
+
+            override fun onResponse(
+                call: Call<ResponseRecipeData>,
+                response: Response<ResponseRecipeData>
+            ) {
+                response.takeIf { it.isSuccessful}
+                    ?.body()
+                    ?.let { it ->
+                        //it.data.userName
+                        recyclerAdapter.data = it.data.toMutableList()
+                        recyclerAdapter.notifyDataSetChanged()
+                    } ?: showError(response.errorBody())
+            }
+        })
+        recyclerView.addItemDecoration(ItemDecoration())
         recyclerAdapter.notifyDataSetChanged()
+    }
+
+    private fun showError(error : ResponseBody?){
+        val e = error ?: return
+        val ob = JSONObject(e.string())
+        Toast.makeText(this, ob.getString("message"), Toast.LENGTH_SHORT).show()
     }
 }

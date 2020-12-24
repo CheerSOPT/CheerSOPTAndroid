@@ -13,15 +13,16 @@
             android:layout_height="0dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="24dp"
+            android:layout_marginEnd="16dp"
             android:paddingBottom="52dp"
-            tools:listitem="@layout/grid_item_list"
-            app:spanCount="2"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textView"
-            />
+            app:layout_constraintVertical_bias="0.0"
+            app:spanCount="2"
+            tools:listitem="@layout/grid_item_list" />
 
         <TextView
             android:id="@+id/textView"
