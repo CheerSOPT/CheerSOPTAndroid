@@ -12,5 +12,5 @@ object RequestToServer {
         .build()
 
     //실체 구현체 생성 부분
-    var service: RequestInterface = retrofit.create<RequestInterface>(RequestInterface::class.java)
+    var service: RequestInterface = retrofit.create(RequestInterface::class.java)
 }
