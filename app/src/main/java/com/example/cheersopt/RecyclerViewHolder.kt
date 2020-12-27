@@ -20,10 +20,11 @@ class RecyclerViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
         var S = ""
         for(i in 0 until data.RATIO_TBs.size) {
             if(i == data.RATIO_TBs.size - 1) {
-                S += data.RATIO_TBs[i].DRINKS_TB.drinks_name + data.RATIO_TBs[i].ratio_percent
+//                S += data.RATIO_TBs[i].DRINKS_TB.drinks_name + data.RATIO_TBs[i].ratio_percent
+                S += MainActivity.BEVERAGE_IDX[data.RATIO_TBs[i].drinks_idx] + data.RATIO_TBs[i].ratio_percent
             }
             else {
-                S = S + data.RATIO_TBs[i].DRINKS_TB.drinks_name + data.RATIO_TBs[i].ratio_percent + "\n"
+                S = S + MainActivity.BEVERAGE_IDX[data.RATIO_TBs[i].drinks_idx] + data.RATIO_TBs[i].ratio_percent + "\n"
             }
 
             for(j in 0 until data.RATIO_TBs[i].ratio_percent) {

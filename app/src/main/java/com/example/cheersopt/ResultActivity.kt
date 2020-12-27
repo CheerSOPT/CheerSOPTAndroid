@@ -11,7 +11,9 @@ import android.view.View
 import android.view.animation.AnimationUtils
 import android.widget.EditText
 import android.widget.TextView
+import com.example.cheersopt.MainActivity.Companion.BEVERAGE_IDX
 import com.example.cheersopt.MainActivity.Companion.STACK_COLOR
+import com.example.cheersopt.MainActivity.Companion.blendedCnt
 import com.example.cheersopt.MainActivity.Companion.recipe
 import com.example.cheersopt.MainActivity.Companion.requestPostRecipeData
 import com.example.cheersopt.network.RequestToServer
@@ -26,11 +28,16 @@ import retrofit2.Response
 class ResultActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_result)
+        setContentView(R.layout.activity_result) }
 
-//        findViewById<TextView>(R.id.result_beverage_tv_beverage1).text = requestPostRecipeData.ratios[0].drinksName
-
+    override fun onResume() {
+        super.onResume()
         GlobalScope.launch {
+            runOnUiThread {
+                findViewById<TextView>(R.id.result_beverage_tv_beverage3).text = BEVERAGE_IDX[requestPostRecipeData.ratios[0].drinksIdx] + " ${requestPostRecipeData.ratios[0].ratioPercent}잔"
+                findViewById<TextView>(R.id.result_beverage_tv_beverage2).text = BEVERAGE_IDX[requestPostRecipeData.ratios[1].drinksIdx] + " ${requestPostRecipeData.ratios[1].ratioPercent}잔"
+                findViewById<TextView>(R.id.result_beverage_tv_beverage1).text = BEVERAGE_IDX[requestPostRecipeData.ratios[2].drinksIdx] + " ${requestPostRecipeData.ratios[2].ratioPercent}잔"
+            }
             delay(1000L)
             runOnUiThread {
                 findViewById<TextView>(R.id.result_beverage_tv1).text = "환상 주 이름을 정해주세요"
