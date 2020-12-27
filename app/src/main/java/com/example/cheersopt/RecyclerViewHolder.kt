@@ -1,9 +1,9 @@
 package com.example.cheersopt
 
-import android.graphics.Color
 import android.view.View
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.cheersopt.MainActivity.Companion.STACK_COLOR
 import com.example.cheersopt.network.data.response.ResponseRecipeData
 
 class RecyclerViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
@@ -14,7 +14,6 @@ class RecyclerViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
     private val stack3: TextView = itemView.findViewById(R.id.b_stack3)
     private val stack4: TextView = itemView.findViewById(R.id.b_stack4)
     private val stack5: TextView = itemView.findViewById(R.id.b_stack5)
-    private val color_list = listOf(0, R.drawable.beverage_stack1, R.drawable.beverage_stack2, R.drawable.beverage_stack3, R.drawable.beverage_stack4, R.drawable.beverage_stack5, R.drawable.beverage_stack6, R.drawable.beverage_stack7)
     fun onBind(data : ResponseRecipeData.Data) {
         title.text = data.recipe_name
         var list = ArrayList<Int>()
@@ -34,11 +33,11 @@ class RecyclerViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
         subTitle.text = S
 
         if(!list.isEmpty()) {
-            stack1.setBackgroundResource(color_list[list.get(0)])
-            stack2.setBackgroundResource(color_list[list.get(1)])
-            stack3.setBackgroundResource(color_list[list.get(2)])
-            stack4.setBackgroundResource(color_list[list.get(3)])
-            stack5.setBackgroundResource(color_list[list.get(4)])
+            stack1.setBackgroundResource(STACK_COLOR[list.get(0)])
+            stack2.setBackgroundResource(STACK_COLOR[list.get(1)])
+            stack3.setBackgroundResource(STACK_COLOR[list.get(2)])
+            stack4.setBackgroundResource(STACK_COLOR[list.get(3)])
+            stack5.setBackgroundResource(STACK_COLOR[list.get(4)])
         }
     }
 

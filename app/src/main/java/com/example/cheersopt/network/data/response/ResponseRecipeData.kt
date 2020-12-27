@@ -1,23 +1,23 @@
 package com.example.cheersopt.network.data.response
 
 data class ResponseRecipeData(
-    val data: List<Data>,
-    val message: String,
-    val status: Int,
-    val success: Boolean
+    var data: List<Data>,
+    var message: String,
+    var status: Int,
+    var success: Boolean
 ) {
     data class Data(
-        val RATIO_TBs: List<RATIOTB>,
-        val recipe_level: Int,
-        val recipe_name: String
+        var RATIO_TBs: List<RATIOTB>,
+        var recipe_level: Int,
+        var recipe_name: String
     ) {
         data class RATIOTB(
-            val DRINKS_TB: DRINKSTB,
-            val drinks_idx: Int,
-            val ratio_percent: Int
+            var DRINKS_TB: DRINKSTB,
+            var drinks_idx: Int,
+            var ratio_percent: Int
         ) {
             data class DRINKSTB(
-                val drinks_name: String
+                var drinks_name: String
             )
         }
     }
