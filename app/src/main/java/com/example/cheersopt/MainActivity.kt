@@ -43,11 +43,15 @@ class MainActivity : AppCompatActivity() {
     var checked = arrayListOf<Int>(-1, -1, -1)
     var selected = arrayListOf<Int>(-1, -1, -1)
     var recipeLevel: Int = 2
-    var ratios: ArrayList<RatioData> = arrayListOf<RatioData>(RatioData(2, 2), RatioData(2, 3))
+    var ratios: ArrayList<RatioData> = arrayListOf<RatioData>(RatioData("", 2, 2), RatioData("", 2, 3))
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+    }
+    override fun onStart() {
+        super.onStart()
 //        requestBlenderData.drinks_idx_1= 1
 //        requestBlenderData.drinks_idx_2= 2
 //        requestBlenderData.drinks_idx_3= 3
@@ -626,9 +630,16 @@ class MainActivity : AppCompatActivity() {
                         requestPostRecipeData.ratios = ratios
                         recipe = body.data.three_recipe_stack
 
+                        Log.e("ResponseBlenderData 통신응답바디", "status: ${requestBlenderData.drinks_idx_1} message : ${requestBlenderData.drinks_idx_2} data : ${requestBlenderData.drinks_idx_3}\"")
 
-//                        Log.e("ResponseBlenderData 통신응답바디", "status: ${body.status} message : ${body.message} data : ${sentenceIdx}\"")
+                        Log.e("ResponseBlenderData 통신응답바디", "status: ${body.status} message : ${body.message} data : ${body.data.three_recipe_stack}\"")
                     }
+                }else{
+
+                    Log.e("ResponseBlenderData 통신응답바디", "status: ${requestBlenderData.drinks_idx_1} message : ${requestBlenderData.drinks_idx_2} data : ${requestBlenderData.drinks_idx_3}\"")
+
+                    Log.e("ResponseBlenderData 통신응답바디", "why")
+
                 }
 
             }

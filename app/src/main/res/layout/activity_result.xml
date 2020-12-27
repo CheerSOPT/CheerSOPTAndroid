@@ -132,7 +132,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@id/result_beverage_stack2"
         android:layout_marginBottom="5dp"
-        android:backgroundTint="@color/cheers_sopt_green"
         android:background="@drawable/beverage_stack"
         android:visibility="invisible"
         />
@@ -145,7 +144,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@id/result_beverage_stack3"
         android:layout_marginBottom="5dp"
-        android:backgroundTint="@color/cheers_sopt_green"
         android:background="@drawable/beverage_stack"
         android:visibility="invisible"
         />
@@ -158,7 +156,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@id/result_beverage_stack4"
         android:layout_marginBottom="5dp"
-        android:backgroundTint="@color/cheers_sopt_skyblue"
         android:background="@drawable/beverage_stack"
         android:visibility="invisible"
         />

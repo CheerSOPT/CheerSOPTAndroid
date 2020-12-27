@@ -2,10 +2,10 @@ package com.example.cheersopt.network.data.response
 
 
 data class ResponseDrinksData (
-    val status : Int,
-    val success : Boolean,
-    val message : String,
-    val data : DrinksData
+    var status : Int,
+    var success : Boolean,
+    var message : String,
+    var data : DrinksData
 )
 
 data class DrinksData(

@@ -27,10 +27,9 @@ class ResultActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_result)
-    }
 
-    override fun onResume() {
-        super.onResume()
+//        findViewById<TextView>(R.id.result_beverage_tv_beverage1).text = requestPostRecipeData.ratios[0].drinksName
+
         GlobalScope.launch {
             delay(1000L)
             runOnUiThread {
@@ -108,7 +107,7 @@ class ResultActivity : AppCompatActivity() {
             ) {
                 if (response.isSuccessful){
                     response.body().let { body ->
-                        Log.e("ResponsePostRecipeData 통신요청바디", "recipeLevel: ${requestPostRecipeData.recipeLevel} recipeName : ${requestPostRecipeData.recipeName} \"")
+                        Log.e("ResponsePostRecipeData 통신요청바디", "recipeLevel: ${requestPostRecipeData.ratios} recipeName : ${requestPostRecipeData.recipeName} \"")
 
                         Log.e("ResponsePostRecipeData 통신응답바디", "status: ${body!!.status} message : ${body!!.message} \"")
                     }
