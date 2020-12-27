@@ -28,6 +28,9 @@ class MainActivity : AppCompatActivity() {
     companion object {
         var requestPostRecipeData: RequestPostRecipeData =
             RequestPostRecipeData("sery", 2, ArrayList<RatioData>())
+        lateinit var recipe : ArrayList<String>
+        val STACK_COLOR = listOf(0, R.drawable.beverage_stack1, R.drawable.beverage_stack2, R.drawable.beverage_stack3, R.drawable.beverage_stack4, R.drawable.beverage_stack5, R.drawable.beverage_stack6, R.drawable.beverage_stack7)
+
 
     }
 
@@ -608,6 +611,12 @@ class MainActivity : AppCompatActivity() {
                     response.body().let { body ->
                         recipeLevel = body!!.data.recipeLevel_3
                         ratios = body.data.ratios
+
+                        requestPostRecipeData.recipeLevel = recipeLevel
+                        requestPostRecipeData.ratios = ratios
+                        recipe = body.data.three_recipe_stack
+
+
 //                        Log.e("ResponseBlenderData 통신응답바디", "status: ${body.status} message : ${body.message} data : ${sentenceIdx}\"")
                     }
                 }

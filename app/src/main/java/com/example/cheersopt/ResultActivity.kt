@@ -11,9 +11,10 @@ import android.view.View
 import android.view.animation.AnimationUtils
 import android.widget.EditText
 import android.widget.TextView
+import com.example.cheersopt.MainActivity.Companion.STACK_COLOR
+import com.example.cheersopt.MainActivity.Companion.recipe
 import com.example.cheersopt.MainActivity.Companion.requestPostRecipeData
 import com.example.cheersopt.network.RequestToServer
-import com.example.cheersopt.network.data.request.RequestPostRecipeData
 import com.example.cheersopt.network.data.response.ResponsePostRecipeData
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
@@ -23,7 +24,6 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class ResultActivity : AppCompatActivity() {
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_result)
@@ -39,55 +39,26 @@ class ResultActivity : AppCompatActivity() {
                 findViewById<TextView>(R.id.result_beverage_btn).visibility = View.VISIBLE
             }
 
-
             findViewById<EditText>(R.id.result_beverage_et)
                 .startAnimation(AnimationUtils.loadAnimation(this@ResultActivity, R.anim.fade_in_up))
             findViewById<TextView>(R.id.result_beverage_btn)
                 .startAnimation(AnimationUtils.loadAnimation(this@ResultActivity, R.anim.fade_in_up))
 
-
             delay(500L)
             runOnUiThread {
                 findViewById<TextView>(R.id.result_beverage_tv_cnt).visibility = View.VISIBLE
                 findViewById<TextView>(R.id.result_beverage_tv_cnt2).visibility = View.VISIBLE
-
-
             }
-            runOnUiThread {
-                findViewById<TextView>(R.id.result_beverage_stack1).visibility = View.VISIBLE
-            }
-            findViewById<TextView>(R.id.result_beverage_stack1)
-                .startAnimation(AnimationUtils.loadAnimation(this@ResultActivity, R.anim.fade_in_up))
 
+            showStack(findViewById<TextView>(R.id.result_beverage_stack1), Integer.parseInt(recipe[0]))
             delay(100L)
-            runOnUiThread {
-                findViewById<TextView>(R.id.result_beverage_stack2).visibility = View.VISIBLE
-            }
-            findViewById<TextView>(R.id.result_beverage_stack2)
-                .startAnimation(AnimationUtils.loadAnimation(this@ResultActivity, R.anim.fade_in_up))
-
+            showStack(findViewById<TextView>(R.id.result_beverage_stack2), Integer.parseInt(recipe[1]))
             delay(100L)
-            runOnUiThread {
-                findViewById<TextView>(R.id.result_beverage_stack3).visibility = View.VISIBLE
-            }
-            findViewById<TextView>(R.id.result_beverage_stack3)
-                .startAnimation(AnimationUtils.loadAnimation(this@ResultActivity, R.anim.fade_in_up))
-
+            showStack(findViewById<TextView>(R.id.result_beverage_stack3), Integer.parseInt(recipe[2]))
             delay(100L)
-            runOnUiThread {
-                findViewById<TextView>(R.id.result_beverage_stack4).visibility = View.VISIBLE
-            }
-            findViewById<TextView>(R.id.result_beverage_stack4)
-                .startAnimation(AnimationUtils.loadAnimation(this@ResultActivity, R.anim.fade_in_up))
-
+            showStack(findViewById<TextView>(R.id.result_beverage_stack4), Integer.parseInt(recipe[3]))
             delay(100L)
-            runOnUiThread {
-                findViewById<TextView>(R.id.result_beverage_stack5).visibility = View.VISIBLE
-            }
-            findViewById<TextView>(R.id.result_beverage_stack5)
-                .startAnimation(AnimationUtils.loadAnimation(this@ResultActivity, R.anim.fade_in_up))
-
-
+            showStack(findViewById<TextView>(R.id.result_beverage_stack5), Integer.parseInt(recipe[4]))
         }
 
         findViewById<EditText>(R.id.result_beverage_et).addTextChangedListener(object :
@@ -137,6 +108,8 @@ class ResultActivity : AppCompatActivity() {
             ) {
                 if (response.isSuccessful){
                     response.body().let { body ->
+                        Log.e("ResponsePostRecipeData 통신요청바디", "recipeLevel: ${requestPostRecipeData.recipeLevel} recipeName : ${requestPostRecipeData.recipeName} \"")
+
                         Log.e("ResponsePostRecipeData 통신응답바디", "status: ${body!!.status} message : ${body!!.message} \"")
                     }
                 }
@@ -145,6 +118,15 @@ class ResultActivity : AppCompatActivity() {
 
         })
         return 0
+    }
+
+    private fun showStack(view: View, drinksIdx : Int){
+        view.setBackgroundResource(STACK_COLOR[drinksIdx])
+
+        runOnUiThread {
+            view.visibility = View.VISIBLE
+        }
+        view.startAnimation(AnimationUtils.loadAnimation(this@ResultActivity, R.anim.fade_in_up))
     }
 
 
