@@ -2,9 +2,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:padding="5dp">
+    android:layout_width="180dp"
+    android:layout_height="wrap_content">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -13,6 +12,7 @@
         android:layout_marginTop="8dp"
         android:background="@drawable/rectangle204"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
@@ -32,9 +32,13 @@
             android:id="@+id/drink_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="24dp"
-            android:textColor="#FFFFFF"
+            android:layout_marginEnd="16dp"
             android:fontFamily="@font/notosans_regular"
+            android:gravity="center_horizontal"
+            android:letterSpacing="-0.03"
+            android:textColor="#FFFFFF"
             android:textSize="16dp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -47,8 +51,11 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:layout_marginBottom="10dp"
-            android:textColor="#FFFFFF"
             android:fontFamily="@font/notosans_regular"
+            android:gravity="center_horizontal"
+            android:letterSpacing="-0.02"
+            android:lineSpacingExtra="8sp"
+            android:textColor="#FFFFFF"
             android:textSize="12dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -64,14 +71,14 @@
             android:layout_marginEnd="8dp"
             android:background="@drawable/line"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/userImg"
-            />
+            app:layout_constraintTop_toBottomOf="@+id/userImg" />
 
         <TextView
             android:id="@+id/b_stack1"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="19dp"
             android:layout_marginStart="58dp"
             android:layout_marginEnd="58dp"
             android:layout_marginBottom="38dp"
@@ -83,10 +90,10 @@
         <TextView
             android:id="@+id/b_stack2"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="19dp"
             android:layout_marginStart="58dp"
             android:layout_marginEnd="58dp"
-            android:layout_marginBottom="5dp"
+            android:layout_marginBottom="3dp"
             android:background="@drawable/beverage_stack2"
             app:layout_constraintBottom_toTopOf="@+id/b_stack1"
             app:layout_constraintEnd_toEndOf="parent"
@@ -95,10 +102,10 @@
         <TextView
             android:id="@+id/b_stack3"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="19dp"
             android:layout_marginStart="58dp"
             android:layout_marginEnd="58dp"
-            android:layout_marginBottom="5dp"
+            android:layout_marginBottom="3dp"
             android:background="@drawable/beverage_stack3"
             app:layout_constraintBottom_toTopOf="@+id/b_stack2"
             app:layout_constraintEnd_toEndOf="parent"
@@ -107,10 +114,10 @@
         <TextView
             android:id="@+id/b_stack4"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="19dp"
             android:layout_marginStart="58dp"
             android:layout_marginEnd="58dp"
-            android:layout_marginBottom="5dp"
+            android:layout_marginBottom="3dp"
             android:background="@drawable/beverage_stack4"
             app:layout_constraintBottom_toTopOf="@+id/b_stack3"
             app:layout_constraintEnd_toEndOf="parent"
@@ -119,10 +126,10 @@
         <TextView
             android:id="@+id/b_stack5"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="19dp"
             android:layout_marginStart="58dp"
             android:layout_marginEnd="58dp"
-            android:layout_marginBottom="5dp"
+            android:layout_marginBottom="3dp"
             android:background="@drawable/beverage_stack5"
             app:layout_constraintBottom_toTopOf="@+id/b_stack4"
             app:layout_constraintEnd_toEndOf="parent"

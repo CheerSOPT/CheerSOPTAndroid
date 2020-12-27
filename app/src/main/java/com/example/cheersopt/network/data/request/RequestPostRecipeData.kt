@@ -1,12 +1,9 @@
 package com.example.cheersopt.network.data.request
 
-data class RequestPostRecipeData (
-    val recipeName : String,
-    val recipeLevel : Int,
-    val ratios : ArrayList<RatioData>
-)
+import com.example.cheersopt.network.data.RatioData
 
-data class RatioData(
-    val drinksIdx : Int,
-    val ratioPercent : Int
+data class RequestPostRecipeData (
+    var recipeName : String,
+    var recipeLevel : Int,
+    var ratios : ArrayList<RatioData>
 )

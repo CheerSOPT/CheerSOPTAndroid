@@ -10,12 +10,6 @@ import retrofit2.Call
 import retrofit2.http.*
 
 interface RequestInterface {
-    //내서재 메인 프로필 조회
-//    @GET("/my/profile")
-//    fun lookLibraryProfile(
-//            @Header("token") token: String?
-//    ) : Call<ResponseMainLibraryData>
-
     // 랜덤 레시피 제조
     @POST("/recipe/blender")
     fun requestBlender(@Body body: RequestBlenderData) : Call<ResponseBlenderData>
