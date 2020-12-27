@@ -2,7 +2,6 @@ package com.example.cheersopt
 
 import android.annotation.SuppressLint
 import android.content.Intent
-import android.graphics.drawable.Drawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -13,7 +12,6 @@ import com.example.cheersopt.network.RequestToServer
 import com.example.cheersopt.network.data.RatioData
 import com.example.cheersopt.network.data.request.RequestBlenderData
 import com.example.cheersopt.network.data.request.RequestPostRecipeData
-import com.example.cheersopt.network.data.response.BlenderData
 import com.example.cheersopt.network.data.response.ResponseBlenderData
 import org.w3c.dom.Text
 import retrofit2.Call
@@ -30,20 +28,17 @@ class MainActivity : AppCompatActivity() {
             RequestPostRecipeData("sery", 2, ArrayList<RatioData>())
         lateinit var recipe : ArrayList<String>
         val STACK_COLOR = listOf(0, R.drawable.beverage_stack1, R.drawable.beverage_stack2, R.drawable.beverage_stack3, R.drawable.beverage_stack4, R.drawable.beverage_stack5, R.drawable.beverage_stack6, R.drawable.beverage_stack7)
-
-
+        val BEVERAGE_IDX = listOf("0", "사이다", "콜라", "토닉워터", "복분자주", "청하", "소주", "맥주")
+        var blendedCnt: Int = 2
     }
 
+
     var requestBlenderData: RequestBlenderData = RequestBlenderData(1, 2, -1)
-
-
     var cnt = 0
     var num = 0
     var checkedArray = arrayListOf<Boolean>(false, false, false, false, false, false, false)
     var checked = arrayListOf<Int>(-1, -1, -1)
     var selected = arrayListOf<Int>(-1, -1, -1)
-    var recipeLevel: Int = 2
-    var ratios: ArrayList<RatioData> = arrayListOf<RatioData>(RatioData("", 2, 2), RatioData("", 2, 3))
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -96,8 +91,6 @@ class MainActivity : AppCompatActivity() {
 
                 // 서버 응답 받아와
                 requestBlender()
-
-                requestPostRecipeData.recipeLevel = recipeLevel
 
                 // 화면 전환
                 val intent = Intent(this, ResultActivity::class.java)
@@ -623,16 +616,15 @@ class MainActivity : AppCompatActivity() {
             ) {
                 if (response.isSuccessful) {
                     response.body().let { body ->
-                        recipeLevel = body!!.data.recipeLevel_3
-                        ratios = body.data.ratios
+                        blendedCnt = body!!.data.blended_count_3
 
-                        requestPostRecipeData.recipeLevel = recipeLevel
-                        requestPostRecipeData.ratios = ratios
+                        requestPostRecipeData.recipeLevel = body!!.data.recipeLevel_3
+                        requestPostRecipeData.ratios = body.data.ratios
                         recipe = body.data.three_recipe_stack
 
                         Log.e("ResponseBlenderData 통신응답바디", "status: ${requestBlenderData.drinks_idx_1} message : ${requestBlenderData.drinks_idx_2} data : ${requestBlenderData.drinks_idx_3}\"")
 
-                        Log.e("ResponseBlenderData 통신응답바디", "status: ${body.status} message : ${body.message} data : ${body.data.three_recipe_stack}\"")
+                        Log.e("ResponseBlenderData 통신응답바디", "status: ${body.status} message : ${body.message} data : ${body.data.ratios}\"")
                     }
                 }else{
 
