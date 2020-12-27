@@ -34,20 +34,9 @@ class ResultActivity : AppCompatActivity() {
         super.onResume()
         GlobalScope.launch {
             runOnUiThread {
-                if(blendedCnt == 2){
-                    Log.e("ㅁㄴㅇㅎㅁㅇㄴ", "recipeLevel: ${BEVERAGE_IDX[requestPostRecipeData.ratios[0].drinksIdx]} recipeName : ${requestPostRecipeData.ratios[0].ratioPercent} \"")
-
-                    findViewById<TextView>(R.id.result_beverage_tv_beverage3).text = BEVERAGE_IDX[requestPostRecipeData.ratios[0].drinksIdx] + " ${requestPostRecipeData.ratios[0].ratioPercent}잔"
-                    findViewById<TextView>(R.id.result_beverage_tv_beverage2).text = BEVERAGE_IDX[requestPostRecipeData.ratios[1].drinksIdx] + " ${requestPostRecipeData.ratios[1].ratioPercent}잔"
-                }else{
-                    Log.e("딘ㄷ", "recipeLevel: ${BEVERAGE_IDX[requestPostRecipeData.ratios[0].drinksIdx]} recipeName : ${requestPostRecipeData.ratios[0].ratioPercent} \"")
-
-                    findViewById<TextView>(R.id.result_beverage_tv_beverage3).text = BEVERAGE_IDX[requestPostRecipeData.ratios[0].drinksIdx] + " ${requestPostRecipeData.ratios[0].ratioPercent}잔"
-                    findViewById<TextView>(R.id.result_beverage_tv_beverage2).text = BEVERAGE_IDX[requestPostRecipeData.ratios[1].drinksIdx] + " ${requestPostRecipeData.ratios[1].ratioPercent}잔"
-                    findViewById<TextView>(R.id.result_beverage_tv_beverage1).text = BEVERAGE_IDX[requestPostRecipeData.ratios[2].drinksIdx] + " ${requestPostRecipeData.ratios[2].ratioPercent}잔"
-
-                }
-
+                findViewById<TextView>(R.id.result_beverage_tv_beverage3).text = BEVERAGE_IDX[requestPostRecipeData.ratios[0].drinksIdx] + " ${requestPostRecipeData.ratios[0].ratioPercent}잔"
+                findViewById<TextView>(R.id.result_beverage_tv_beverage2).text = BEVERAGE_IDX[requestPostRecipeData.ratios[1].drinksIdx] + " ${requestPostRecipeData.ratios[1].ratioPercent}잔"
+                findViewById<TextView>(R.id.result_beverage_tv_beverage1).text = BEVERAGE_IDX[requestPostRecipeData.ratios[2].drinksIdx] + " ${requestPostRecipeData.ratios[2].ratioPercent}잔"
             }
             delay(1000L)
             runOnUiThread {
