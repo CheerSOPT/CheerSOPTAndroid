@@ -63,19 +63,29 @@ class MainActivity : AppCompatActivity() {
                     // 서버 요청 보내
                     for (i in 0..2) {
                         for (cnt in 0..6) {
-                            if (checkedArray[cnt]) {
-                                checked[i] = cnt + 1
+                            if(cnt != checked[0] -1){
+                                if(cnt != checked[1]-1){
+                                    if (checkedArray[cnt]) {
+                                        checked[i] = cnt + 1
+                                        break
+                                    }
+                                }
                             }
                         }
-
                     }
+
                     if (checked[2] == -1) {
                         requestBlenderData.drinks_idx_1 = checked[0]
                         requestBlenderData.drinks_idx_2 = checked[1]
+//                        Log.d("drinks_idx_1", requestBlenderData.drinks_idx_1.toString())
+//                        Log.d("drinks_idx_2", requestBlenderData.drinks_idx_2.toString())
                     } else {
                         requestBlenderData.drinks_idx_1 = checked[0]
                         requestBlenderData.drinks_idx_2 = checked[1]
                         requestBlenderData.drinks_idx_3 = checked[2]
+//                        Log.d("drinks_idx_1", requestBlenderData.drinks_idx_1.toString())
+//                        Log.d("drinks_idx_2", requestBlenderData.drinks_idx_2.toString())
+//                        Log.d("drinks_idx_3", requestBlenderData.drinks_idx_3.toString())
                     }
                 }
 
